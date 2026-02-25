@@ -62,6 +62,12 @@ The goal is to create a **scalable, maintainable, JSON‑driven automation frame
   - Medications & Supplements  
 - Easy to plug in new onboarding steps
 
+### 🔹 **Conditional Hooks**
+This eliminates repetitive Given steps and keeps feature files clean and business‑focused.
+
+### 🔹 **Centralized navigation logic**
+All navigation is handled in one place: NavigationHelper.
+
 ## Setup
 
 ### Clone the repository
@@ -89,6 +95,17 @@ mvn clean test
 ### Run tests by tag
 
 mvn clean test -Dcucumber.filter.tags="@fileUpload"
+
+### Rerun failed tests
+This framework supports automatic rerun of failed Cucumber scenarios using the Cucumber rerun plugin and a dedicated rerun test runner.
+
+When a test run completes, any failed scenarios are written to: target/failed_scenarios.txt
+
+Rerun failed tests:
+
+mvn -Dtest=ReRunFailedScenarios test  
+
+
 
 ## Tech Stack
 
