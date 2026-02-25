@@ -1,0 +1,287 @@
+{
+  "registration": {
+    "validRegistration": {
+      "email": "valid@email.com",
+      "password": "ValidPassword123",
+      "confirmPassword": "ValidPassword123",
+      "acceptTerms": true,
+      "expectedResult": "onboarding"
+    },
+    "invalidEmail": {
+      "email": "invalid-email",
+      "password": "Password123",
+      "confirmPassword": "Password123",
+      "acceptTerms": true,
+      "expectedResult": "invalid email"
+    },
+    "missingPassword": {
+      "email": "test@email.com",
+      "password": "",
+      "confirmPassword": "Password123",
+      "acceptTerms": true,
+      "expectedResult": "password required"
+    },
+    "missingConfirmPassword": {
+      "email": "test@email.com",
+      "password": "Password123",
+      "confirmPassword": "",
+      "acceptTerms": true,
+      "expectedResult": "confirm password required"
+    },
+    "passwordMismatch": {
+      "email": "test@email.com",
+      "password": "Password123",
+      "confirmPassword": "DifferentPassword",
+      "acceptTerms": true,
+      "expectedResult": "password mismatch"
+    },
+    "termsNotAccepted": {
+      "email": "test@email.com",
+      "password": "Password123",
+      "confirmPassword": "Password123",
+      "acceptTerms": false,
+      "expectedResult": "terms not accepted"
+    },
+    "emailAlreadyUsed": {
+      "email": "existing@email.com",
+      "password": "Password123",
+      "confirmPassword": "Password123",
+      "acceptTerms": true,
+      "expectedResult": "email already used"
+    }
+  },
+  "login": {
+    "valid": {
+      "email": "valid@email.com",
+      "password": "ValidPassword123"
+    },
+    "invalid": {
+      "email": "wrong@email.com",
+      "password": "WrongPassword"
+    }
+  },
+  "onboarding": {
+    "fileUpload": {
+      "invalidType": {
+        "fileName": "document.txt",
+        "fileType": "text/plain",
+        "expectedResult": "invalid file type"
+      },
+      "largePDF": {
+        "fileName": "large_document.pdf",
+        "fileType": "application/pdf",
+        "expectedResult": "file size limit exceeded"
+      },
+      "validFile": {
+        "fileName": "blood_report.pdf",
+        "fileType": "application/pdf",
+        "expectedResult": "analyze report"
+      }
+    },
+    "healthConditions": [
+      "PCOS",
+      "Hypothyroidism"
+    ],
+    "personalDetails": {
+      "valid": {
+        "firstName": "Alice",
+        "age": 28,
+        "bloodPressure": "I have been diagnosed with high blood pressure and take medication for it"
+      },
+      "invalid": {
+        "firstName": "",
+        "age": "",
+        "bloodPressure": ""
+      }
+    },
+    "cycleStatus": [
+      "Yes",
+      "No",
+      "My cycle is irregular"
+    ],
+    "menstrualCycleInfo": {
+      "lastPeriodDate": "2026-01-15",
+      "cycleLengthDays": 28,
+      "calculatedPhase": "Luteal",
+      "currentCycleDay": 23,
+      "nextExpectedPeriods": [
+        "2026-02-12",
+        "2026-03-12",
+        "2026-04-09"
+      ],
+      "calendarDisplay": {
+        "monthsShown": [
+          "February 2026",
+          "March 2026"
+        ]
+      }
+    },
+    "dietType": "Vegetarian",
+    "bmiTests": {
+      "bmiMetric": {
+        "weight": 60,
+        "unit": "kg",
+        "height": 165,
+        "expectedBmi": 22.04,
+        "expectedFeedback": "Your BMI is in the normal range"
+      },
+      "bmiImperial": {
+        "weight": 132,
+        "unit": "pounds",
+        "height": 165,
+        "expectedBmi": 22.04,
+        "expectedFeedback": "Your BMI is in the normal range"
+      }
+    },
+    "physicalActivity": {
+      "sedentary": {
+        "activity": "Sedentary",
+        "message": "Incorporating more movement can significantly boost your weight loss efforts."
+      },
+      "lightlyActive": {
+        "activity": "Lightly Active",
+        "message": "Great! Regular activity helps boost metabolism and improve overall health."
+      },
+      "moderatelyActive": {
+        "activity": "Moderately Active",
+        "message": "Great! Regular activity helps boost metabolism and improve overall health."
+      },
+      "veryActive": {
+        "activity": "Very Active",
+        "message": "Great! Regular activity helps boost metabolism and improve overall health."
+      }
+    },
+	"foodAllergies": { 
+		"noPreferenceSelectedError": "Please select a food allergy or intolerance option." 
+	},
+    "foodsToAvoid": [
+      {
+        "name": "Dairy",
+        "infoMessage": "Lactose doesn't always play nice with digestion. No worries—we've got delicious dairy-free options for you!"
+      },
+      {
+        "name": "Gluten",
+        "infoMessage": "Gluten-free? No problem! We'll guide you to fiber-rich, gut-friendly alternatives."
+      },
+      {
+        "name": "Peanuts",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Tree Nuts",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Shellfish",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Fish",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Eggs",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Soy",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Wheat",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Corn",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Nightshades",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Citrus",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Sulfites",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "Histamines",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      },
+      {
+        "name": "FODMAP foods",
+        "infoMessage": "We'll make sure your meal recommendations are free from allergens while still being nutritious and tasty!"
+      }
+    ],
+    "foodPreferenceOptions": [
+      {
+        "id": "severe_allergy",
+        "label": "Yes, I have food allergies (severe)",
+        "requiresFoodsToAvoid": true,
+        "errorMessage": "Please select at least one food to avoid."
+      },
+      {
+        "id": "intolerance_sensitivity",
+        "label": "Yes, I have food intolerance / sensitivities",
+        "requiresFoodsToAvoid": true,
+        "errorMessage": "Please select at least one food to avoid."
+      },
+      {
+        "id": "no_restrictions",
+        "label": "No, I can eat everything",
+        "requiresFoodsToAvoid": false,
+        "errorMessage": ""
+      },
+      {
+        "id": "not_sure",
+        "label": "Not sure",
+        "requiresFoodsToAvoid": false,
+        "errorMessage": ""
+      }
+    ],
+	"medicationsAndSupplements": {
+	  "noOptionSelectedError": "Please select an option.",
+	  "noMedicationSelectedError": "Please add at least one medication or supplement."
+	},
+	"medicationOptions": [
+	  {
+	    "id": "prescription",
+	    "label": "Yes, I take medications",
+	    "requiresDetails": true
+	  },
+	  {
+	    "id": "supplements",
+	    "label": "Yes, I take supplements",
+	    "requiresDetails": true
+	  },
+	  {
+  	    "id": "both",
+  	    "label": "Yes, I take both",
+  	    "requiresDetails": true
+	  },
+	  {
+	    "id": "none",
+	    "label": "No, I don't take any",
+	    "requiresDetails": false
+	  }
+	],
+	"medications": {
+	  "thyroidMedication": {
+	    "name": "Thyroid medication",
+	    "message": "Thyroid meds help regulate your metabolism—optimizing your nutrition can further enhance their benefits!"
+	  },
+	  "vitaminD": {
+	    "name": "Vitamin D",
+	    "message": "We’ll make sure your nutrition plan works in harmony with your medications."
+	  },
+	  "iron": {
+	    "name": "Iron",
+	    "message": "Great choices! These support immunity, metabolism, and overall well-being."
+	  }
+	}
+
+  }
+}
