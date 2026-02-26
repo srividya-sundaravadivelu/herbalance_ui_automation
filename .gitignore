@@ -19,3 +19,4 @@ screenshots/
 .env
 *.env
 *.properties.local
+allure-report/
