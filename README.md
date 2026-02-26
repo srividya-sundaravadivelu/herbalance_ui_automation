@@ -68,6 +68,15 @@ This eliminates repetitive Given steps and keeps feature files clean and busines
 ### 🔹 **Centralized navigation logic**
 All navigation is handled in one place: NavigationHelper.
 
+### 🔹 **Parallel Runs**
+Parallel execution is enabled using TestNG’s parallel DataProvider mechanism. Each Cucumber scenario is supplied to TestNG through a DataProvider with parallel = true. This allows scenarios to run concurrently across multiple threads. The TestNG suite (testng.xml) controls the thread count and parallel mode.
+
+### 🔹 **Allure Reporting**
+Allure reporting is integrated into the framework to generate rich, interactive reports that capture scenario steps, attachments, and failure screenshots from both the main run and the automatic rerun suite.
+
+### 🔹 **Rerun failed tests**
+This framework supports automatic rerun of failed Cucumber scenarios using the Cucumber rerun plugin and a dedicated rerun test runner. When the main suite finishes, the rerun suite is triggered automatically and executes only the scenarios listed in target/failed_scenarios.txt. 
+
 ## Setup
 
 ### Clone the repository
@@ -96,17 +105,6 @@ mvn clean test
 
 mvn clean test -Dcucumber.filter.tags="@fileUpload"
 
-### Rerun failed tests
-This framework supports automatic rerun of failed Cucumber scenarios using the Cucumber rerun plugin and a dedicated rerun test runner.
-
-When a test run completes, any failed scenarios are written to: target/failed_scenarios.txt
-
-Rerun failed tests:
-
-mvn -Dtest=ReRunFailedScenarios test  
-
-
-
 ## Tech Stack
 
 Java 17
@@ -120,6 +118,25 @@ TestNG
 Maven
 
 Jackson (JSON parsing)
+
+## Allure Report
+
+After the test run (main + automatic rerun), Allure results are stored in target/allure-results.
+Generate and open the interactive report with:
+allure serve target/allure-results
+
+<img width="1919" height="933" alt="image" src="https://github.com/user-attachments/assets/1f0b31d5-2e80-4db2-b345-8bc518b52ba0" />
+<img width="1916" height="722" alt="image" src="https://github.com/user-attachments/assets/119fa883-7cba-4d5a-a571-e49322d05d72" />
+<img width="1919" height="973" alt="image" src="https://github.com/user-attachments/assets/29c36d96-f7fc-4893-b82b-56c42857f3d1" />
+<img width="1917" height="966" alt="image" src="https://github.com/user-attachments/assets/dbb3ee36-e323-465a-9389-51c346db6915" />
+<img width="1919" height="967" alt="image" src="https://github.com/user-attachments/assets/8d559be8-f066-4213-9af5-4741e17fb989" />
+<img width="1919" height="966" alt="image" src="https://github.com/user-attachments/assets/96bfa5db-bf94-4c41-a39d-11b176ae031b" />
+
+
+
+
+
+
 
 
 
