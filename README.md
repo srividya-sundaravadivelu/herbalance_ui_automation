@@ -77,6 +77,9 @@ Allure reporting is integrated into the framework to generate rich, interactive 
 ### 🔹 **Rerun failed tests**
 This framework supports automatic rerun of failed Cucumber scenarios using the Cucumber rerun plugin and a dedicated rerun test runner. When the main suite finishes, the rerun suite is triggered automatically and executes only the scenarios listed in target/failed_scenarios.txt. 
 
+### 🔹 **Depency-injection through Picocontainer**
+PicoContainer is used as the dependency‑injection mechanism. For every scenario, it creates a fresh TestContext and injects it into all step definition classes, ensuring thread‑safe, scenario‑scoped objects during parallel execution.
+
 ## Setup
 
 ### Clone the repository
@@ -105,6 +108,31 @@ mvn clean test
 
 mvn clean test -Dcucumber.filter.tags="@fileUpload"
 
+## Execution Flow
+
+    A[TestNG Suite<br/>(Main Run + Auto Rerun)] --> B[Cucumber Runner<br/>(Scenarios via TestNG DataProvider)]
+    B --> C[PicoContainer<br/>Creates Scenario Scope<br/>Injects TestContext]
+    C --> D[TestContext<br/>- ConfigReader<br/>- DriverManager<br/>- TestDataReader<br/>- ScenarioContext]
+
+    D --> E[ConfigReader<br/>Loads env/stub/browser config]
+    D --> F[DriverManager<br/>Creates WebDriver instance]
+    D --> G[TestDataReader<br/>Loads JSON test data]
+
+    D --> H[Step Definitions<br/>(Business-level actions)]
+    H --> I[NavigationHelper<br/>(Onboarding flow transitions)]
+    I --> J[Page Objects<br/>(UI interactions + locators)]
+    J --> K[Assertions & Validations]
+
+    K --> L[@After Hook<br/>- Capture failure screenshot (Allure)<br/>- Quit WebDriver]
+
+    L --> M[Allure Reporting<br/>Steps, logs, screenshots<br/>Merged with rerun results]
+
+    M --> N{failed_scenarios.txt exists?}
+    N -->|Yes| O[Rerun Runner<br/>Executes failed scenarios]
+    N -->|No| P[Execution Ends]
+
+    O --> M
+
 ## Tech Stack
 
 Java 17
@@ -131,6 +159,9 @@ allure serve target/allure-results
 <img width="1917" height="966" alt="image" src="https://github.com/user-attachments/assets/dbb3ee36-e323-465a-9389-51c346db6915" />
 <img width="1919" height="967" alt="image" src="https://github.com/user-attachments/assets/8d559be8-f066-4213-9af5-4741e17fb989" />
 <img width="1919" height="966" alt="image" src="https://github.com/user-attachments/assets/96bfa5db-bf94-4c41-a39d-11b176ae031b" />
+
+
+
 
 
 
